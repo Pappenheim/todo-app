@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: todo-app-deployment
-  namespace: todo-app-99
+  namespace: todo-app-gzp
   labels:
-    app: todo-app
+    app: todo-app-gzp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: todo-app
+      app: todo-app-gzp
   template:
     metadata:
       labels:
-        app: todo-app
+        app: todo-app-gzp
     spec:
       containers:
-      - name: todo-db-nextjs
-        image: rudipailer/todo-db:latest
+      - name: todo-db-gzp #todo-db-nextjs
+        image: pappenheim/todo-db:latest #???
         ports:
         - containerPort: 3000
-          name: todo
+          name: todo-app-gzp #todo
         env:
           - name: BASE_PATH
             valueFrom:
